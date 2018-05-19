@@ -2,14 +2,16 @@
 
 set -e
 
-pacman --noconfirm -Sy curl gcc unzip tar
+pacman --needed --noconfirm -Sy  \
+    curl unzip tar  `# "official" dependencies`  \
+    gcc  `# to compile vcpkg`  \
+    git  `# to clone vcpkg`  \
+    which  `# for vcpkg to find tools in path`  \
 
-cd "/tmp"
-unzip "vcpkg.zip"
-mv "vcpkg-master" "/opt/vcpkg"
-cd "/opt/vcpkg"
-
+cd "/opt"
+git clone "https://github.com/Microsoft/vcpkg.git"
+cd "vcpkg"
 ./bootstrap-vcpkg.sh
 ln -s "/opt/vcpkg/vcpkg" "/usr/bin/"
 vcpkg integrate install
-chmod -R a+rw "/opt/vcpkg"
+chmod -R a+rw "."
