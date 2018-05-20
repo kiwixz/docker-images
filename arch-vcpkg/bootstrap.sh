@@ -9,7 +9,7 @@ pacman --needed --noconfirm -Sy  \
     which  `# for vcpkg to find tools in path`  \
 
 cd "/opt"
-git clone "https://github.com/Microsoft/vcpkg.git"
+git clone --depth=1 "https://github.com/Microsoft/vcpkg.git"
 cd "vcpkg"
 ./bootstrap-vcpkg.sh
 ln -s "/opt/vcpkg/vcpkg" "/usr/bin/"
