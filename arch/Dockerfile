@@ -1,9 +1,12 @@
-FROM archlinux/base
+FROM archlinux/base AS builder
 
-RUN pacman --noconfirm -Syu
+RUN pacman --noconfirm -Syu \
+    && rm -rf  \
+        /tmp/*  \
+        /var/cache/pacman/pkg/*  \
+        /var/tmp/*
 
-RUN rm -rf  \
-    /tmp/*  \
-    /var/cache/pacman/pkg/*  \
-    /var/lib/pacman/sync/*  \
-    /var/tmp/*
+
+FROM scratch
+COPY --from=builder / /
+CMD ["/usr/bin/bash"]
