@@ -1,6 +1,7 @@
 FROM archlinux/base AS builder
 
-RUN pacman --noconfirm -Syu \
+ADD "bootstrap.sh" "/tmp/bootstrap.sh"
+RUN bash "/tmp/bootstrap.sh" \
     && rm -rf  \
         /tmp/*  \
         /var/cache/pacman/pkg/*  \
