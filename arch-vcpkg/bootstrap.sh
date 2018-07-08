@@ -7,7 +7,10 @@ pacman --needed --noconfirm -Sy  \
     git  `# to clone vcpkg`  \
     gcc  `# to compile vcpkg`  \
     which  `# for vcpkg to find tools in path`  \
+    perl  `# for shasum, for vcpkg to verify files`  \
     cmake  `# to install vcpkg libs`
+
+source "/etc/profile"  # add perl binaries to path
 
 cd "/opt"
 git clone --depth=1 "https://github.com/Microsoft/vcpkg.git"

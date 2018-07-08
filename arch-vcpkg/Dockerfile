@@ -1,7 +1,8 @@
 FROM kiwixz/arch AS builder
 
+SHELL ["/bin/sh", "-l", "-c"]
 COPY "bootstrap.sh" "/tmp/bootstrap.sh"
-RUN bash "/tmp/bootstrap.sh" \
+RUN bash "/tmp/bootstrap.sh"  \
     && rm -rf  \
         /tmp/*  \
         /var/cache/pacman/pkg/*  \
@@ -10,4 +11,4 @@ RUN bash "/tmp/bootstrap.sh" \
 
 FROM scratch
 COPY --from=builder / /
-CMD ["/usr/bin/bash"]
+CMD ["/bin/bash", "-l"]
