@@ -1,6 +1,5 @@
 FROM kiwixz/arch AS builder
 
-SHELL ["/bin/sh", "-l", "-c"]
 COPY "bootstrap.sh" "/tmp/bootstrap.sh"
 RUN bash "/tmp/bootstrap.sh"  \
     && rm -rf  \

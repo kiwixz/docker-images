@@ -3,12 +3,13 @@
 set -e
 
 pacman --needed --noconfirm -Sy  \
-    curl unzip tar  `# "official" dependencies`  \
     git  `# to clone vcpkg`  \
+    curl  `# for vcpkg to download tools`  \
+    tar gzip unzip  `# for vcpkg to extract tools`  \
     gcc  `# to compile vcpkg`  \
     which  `# for vcpkg to find tools in path`  \
     perl  `# for shasum, for vcpkg to verify files`  \
-    cmake  `# to install vcpkg libs`
+    cmake ninja  `# to install vcpkg libs`
 
 source "/etc/profile"  # add perl binaries to path
 
@@ -22,6 +23,4 @@ vcpkg integrate install
 chmod -R a+rw "."
 
 find "toolsrc" -maxdepth 1 -name 'build*' -type d -exec rm -rf {} \;
-rm -rf "packages" "buildtrees"
-rm -rf downloads/tools/cmake-*
-find "downloads" -name '*' ! -path "downloads" ! -path 'downloads/tools*' -delete
+rm -rf "buildtrees" "downloads" "packages"
