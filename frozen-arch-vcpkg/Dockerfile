@@ -1,4 +1,4 @@
-FROM kiwixz/arch AS builder
+FROM kiwixz/frozen-arch AS builder
 
 COPY "bootstrap.sh" "/tmp/"
 COPY "kiwixz_*" "/usr/bin/"
