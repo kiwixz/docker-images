@@ -1,8 +1,8 @@
 FROM archlinux/base AS builder
 
 COPY "bootstrap.sh" "/tmp/"
-COPY "kiwixz_*" "/usr/bin/"
-RUN chmod 755 /usr/bin/kiwixz_*  \
+COPY "kiwixz_*" "/usr/local/bin/"
+RUN chmod 755 /usr/local/bin/kiwixz_*  \
     && kiwixz_freeze  \
     && bash "/tmp/bootstrap.sh"  \
     && kiwixz_cleanup
