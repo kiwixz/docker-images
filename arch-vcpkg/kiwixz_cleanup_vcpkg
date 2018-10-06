@@ -5,5 +5,4 @@ set -e
 kiwixz_cleanup
 
 cd "/opt/vcpkg"
-find "toolsrc" -maxdepth 1 -name 'build*' -type d -exec rm -rf {} \;
 rm -rf "buildtrees" "downloads" "packages"
