@@ -9,7 +9,7 @@ pacman --needed --noconfirm -Sy  \
     gcc  `# to compile vcpkg`  \
     which  `# for vcpkg to find tools in path`  \
     perl  `# for shasum, for vcpkg to verify files`  \
-    cmake ninja  `# to install vcpkg libs`
+    cmake make ninja  `# to install vcpkg libs`
 
 source "/etc/profile"  # add perl binaries to path
 
