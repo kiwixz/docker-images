@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-kiwixz_cleanup
-
-cd "/opt/vcpkg"
-rm -rf "buildtrees" "downloads" "packages"
-git -C "/opt/vcpkg" gc --aggressive --prune=all
