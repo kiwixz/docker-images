@@ -1,8 +1,7 @@
 FROM kiwixz/arch
 
 COPY "kiwixz_*" "/usr/local/bin/"
-RUN :  \
-    && chmod 755 /usr/local/bin/kiwixz_*  \
+RUN chmod 755 /usr/local/bin/kiwixz_*  \
     && pacman --needed --noconfirm -Sy  \
         git  `# to clone vcpkg`  \
         curl  `# for vcpkg to download tools`  \
