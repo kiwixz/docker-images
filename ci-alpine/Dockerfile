@@ -1,4 +1,4 @@
 FROM alpine
 
-RUN apk --update --nocache add  \
+RUN apk --update --no-cache add  \
         git openssh
