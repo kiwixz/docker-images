@@ -1,4 +1,4 @@
-FROM kiwixz/arch
+FROM "kiwixz/arch"
 
 COPY "kiwixz_*" "/usr/local/bin/"
 RUN chmod 755 /usr/local/bin/kiwixz_*  \

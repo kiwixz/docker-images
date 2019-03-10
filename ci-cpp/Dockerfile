@@ -1,4 +1,4 @@
-FROM kiwixz/arch-vcpkg
+FROM "kiwixz/arch-vcpkg"
 
 RUN pacman --needed --noconfirm -Sy  \
         git openssh  \
