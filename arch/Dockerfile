@@ -9,4 +9,6 @@ RUN chmod 755 /usr/local/bin/kiwixz_*  \
 
 FROM scratch
 COPY --from=builder "/" "/"
+
+WORKDIR "/root"
 CMD ["/bin/bash"]
