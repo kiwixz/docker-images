@@ -1,7 +1,7 @@
-FROM "kiwixz/arch-vcpkg"
+FROM "kiwixz/arch"
 
 RUN pacman --needed --noconfirm -Sy  \
         git openssh  \
-        clang cmake lld ninja  \
-        python nasm  \
-    && kiwixz_cleanup_vcpkg
+        clang cmake gcc lld ninja  \
+        nasm python  \
+    && kiwixz_cleanup
